@@ -5,11 +5,10 @@
 
 <struts>
 	<package name="register" extends="struts-default">
-		<action name="register">
-			<result> /register.jsp</result>
-		</action>
+		<!-- register page can also be routed using register.jsp in the search box -->
 		<action name="registerAction" class="RegisterAction">
 			<result name="success"> /welcome.jsp</result>
+			<result name="input"> /register.jsp</result>
 		</action>
 	</package>
 

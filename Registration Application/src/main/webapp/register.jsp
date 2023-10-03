@@ -8,6 +8,7 @@
 <title> Registration Page</title>
 </head>
 <body>
+	<s:head/>
 	<h2>Registration page</h2>
 	<s:form action="registerAction">
 		<s:textfield name="firstName" label="First name" />

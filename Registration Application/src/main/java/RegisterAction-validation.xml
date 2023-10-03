@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC 
+	"-//Apache Struts //XWork Validator 1.0.3//EN"
+	"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<!-- Here we use validator tags for validation 
+	 type=requiredstring validates if the entered input is not null and empty string
+	 type=required validates if the entered input is not null
+	 type=min validates the input value greater then particular value 
+	 
+	 <field-validator> tag is useful to group multiple validation for certain field
+	 it inherits the field name from the <field> tag so only validations are required here no param tag required
+	 -->
+<validators>
+	<validator type="requiredstring">
+		<param name="fieldName">firstName</param>
+		<message> First name is required</message>
+	</validator>
+	<validator type="requiredstring">
+		<param name="fieldName">lastName</param>
+		<message> Last name is required</message>
+	</validator>
+	<validator type="required">
+		<param name="fieldName">gender</param>
+		<message> Gender name is required</message>
+	</validator>
+	<validator type="required">
+		<param name="fieldName">age</param>
+		<message> Age is required</message>
+	</validator>
+	<validator type="int">
+		<param name="fieldName">age</param>
+		<param name="min">18</param>
+		<message>Age must be above ${min}</message>
+	</validator>
+	<field name="email">
+		<field-validator type="requiredstring">
+			<message>Email is required</message>
+		</field-validator>
+		<field-validator type="email">
+			<message>Must provide a valid mail</message>
+		</field-validator>
+	</field>
+	<!--  Field validator can be a replacement for the email field with multiple validations 
+	<validator type="requiredstring">
+		<param name="fieldName">email</param>
+		<message> Email is required</message>
+	</validator>
+	<validator type="email">
+		<param name="fieldName"> email</param>
+		<message>Must provide a valid mail</message>
+	</validator>
+	 -->
+</validators>
