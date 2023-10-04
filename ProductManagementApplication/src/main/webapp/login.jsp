@@ -5,15 +5,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="styles.css">
 <title>Login Page</title>
 </head>
 <body>
 	<div align="center">
 		<h2>Login Form</h2>
-		<s:form action="loginAction">
-			<s:textfield name="userName" label="User Name"></s:textfield> 
-			<s:textfield name="password" label="Password"></s:textfield>
-			<s:submit value="Submit"/>
+		<s:form action="loginAction" class="loginForm">
+			<s:textfield name="userName" label="User Name" class="formTextField"></s:textfield> 
+			<s:textfield name="password" label="Password" class="formTextField"></s:textfield>
+			<s:submit value="Submit" class="actionBtn"/>
 		</s:form>
 	</div>
 </body>

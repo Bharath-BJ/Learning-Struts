@@ -14,6 +14,6 @@
 </struts>
 
 <!-- Flow the whole program as follows
-	web.xml > struts.xml > action class > pojo obj pass to dao > db connection established using Dbutil > Check whether pojo obj attributes exists in db or not
+	web.xml > struts.xml > Login action class > login pojo obj pass to Login dao > db connection established using Dbutil > Check whether login pojo obj attributes exists in db or not
 	if exists "success" code triggers welcome.jsp 
 	if not "input" code triggers login.jsp again -->
