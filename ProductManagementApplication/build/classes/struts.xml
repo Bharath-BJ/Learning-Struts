@@ -6,14 +6,17 @@
 <struts>
 	<package name="ProductManagementApp" extends="struts-default">
 		<action name="loginAction" class="action.LoginAction">
-			<result name="success"> /welcome.jsp</result>
+			<result name="success" type="redirect"> welcomeAction</result>
 			<result name="input"> /login.jsp</result>
 		</action>
+		<action name="welcomeAction" class="action.WelcomeAction">
+			<result name="success"> /welcome.jsp </result>
+		</action>
 	</package>
-
 </struts>
 
 <!-- Flow the whole program as follows
 	web.xml > struts.xml > Login action class > login pojo obj pass to Login dao > db connection established using Dbutil > Check whether login pojo obj attributes exists in db or not
-	if exists "success" code triggers welcome.jsp 
-	if not "input" code triggers login.jsp again -->
+	(i)if exists "success" code redirects to welcomeAction route > Welcome action class > receive a list of products from ProductMangementDAO class 
+	by extracting the productList from db > Now products are rendered in welcome page using iteratoe and property tags in struts
+	(ii)if not "input" code triggers login.jsp again -->
