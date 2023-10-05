@@ -49,4 +49,45 @@ public class ProductManagementDAO {
 		}
 	return recordAdded;
 	}
+	
+	public static Product getProductById(String productId)
+	{
+		Product product=null;
+		try {
+			Connection con= Dbutil.getConnection();
+			PreparedStatement pst = con.prepareStatement("select * from products where prod_id=?");
+			pst.setString(1,productId);
+			ResultSet rs=pst.executeQuery();
+			while(rs.next())
+			{
+				product=new Product(rs.getString(1),rs.getString(2),rs.getString(3),rs.getInt(4));
+			}
+			Dbutil.closeConnection(con);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	return product;
+	}
+	
+	public static int updateProduct(String productId,String productName,String productCategory,int productPrice)
+	{
+		int recordAdded=0;
+		try {
+			Connection con= Dbutil.getConnection();
+			PreparedStatement pst = con.prepareStatement("update products set prod_name=?, prod_category=?, prod_price=? where prod_id= ?");
+			pst.setString(1,productName);
+			pst.setString(2,productCategory);
+			pst.setInt(3,productPrice);
+			pst.setString(4,productId);
+			recordAdded=pst.executeUpdate();
+			Dbutil.closeConnection(con);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	return recordAdded;
+	}
 }
