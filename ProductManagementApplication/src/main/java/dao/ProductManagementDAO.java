@@ -90,4 +90,22 @@ public class ProductManagementDAO {
 		}
 	return recordAdded;
 	}
+	
+	public static int deleteProduct(String productId)
+	{
+		int recordAffected=0;
+		try {
+			Connection con= Dbutil.getConnection();
+			PreparedStatement pst = con.prepareStatement("delete from products where prod_id=?");
+			pst.setString(1,productId);
+			recordAffected=pst.executeUpdate();
+			System.out.println(recordAffected);
+			Dbutil.closeConnection(con);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	return recordAffected;
+	}
 }

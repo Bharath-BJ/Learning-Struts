@@ -15,12 +15,18 @@
 		<action name="addProduct" class="action.AddProductAction">
 			<result name="success" type="redirect"> welcomeAction</result>
 			<result name="error"> /error.jsp</result>
+			<result name="input"> /addProduct.jsp</result>
 		</action>
 		<action name="updateDataAction" class="action.UpdateDataAction">
 			<result name="success"> /updateProduct.jsp</result>
 			<result name="error"> /error.jsp</result>	
 		</action>
 		<action name="updateAction" class="action.UpdateAction">
+			<result name="success" type="redirect"> welcomeAction</result>
+			<result name="error"> /error.jsp</result>
+			<result name="input"> /updateProduct.jsp</result>
+		</action>
+		<action name="deleteAction" class="action.DeleteAction">
 			<result name="success" type="redirect"> welcomeAction</result>
 			<result name="error"> /error.jsp</result>
 		</action>
@@ -41,6 +47,13 @@
 	When Update button clicked before rendering updateAction.jsp page we need that product details pre-populated in the form, so we fetch those details first
 	> updateDataAction Class with prodId as params > getProductById(prodId) called from ProductManagementDAO > dbutil connection established >
 	fetch product details using prodId > updateProduct.jsp with pre-populated details > UpdateAction Class > updateProduct(all details) called from ProductManagementDAO 
-	> 
+	> updation of product with prodId > thne based on recordAdded
+	if "success" redirected to welcomeAction to get all updated products 
+	if "error" render error page 
+	
+	When Delete button clicked > DeleteAction Class with prodId as params > deleteProduct(prodId) called from ProductManagementDAO > dbutil connection established >
+	deletion of product with prodId > > then based on recordAffected
+	if "success" redirected to welcomeAction to get all updated products 
+	if "error" render error page 
 	
 	-->
