@@ -11,6 +11,9 @@
 <body>
 	<div align="center">
 		<h2>Welcome Page</h2>
+		<a href="addProduct.jsp">
+			<button class="actionBtn"> Add Product</button>
+		</a>
 		<table width=750 class="productTable" align="center">
 			<thead>
 				<tr>

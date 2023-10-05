@@ -29,4 +29,24 @@ public class ProductManagementDAO {
 		}
 	return productList;
 	}
+	
+	public static int addProduct(Product product)
+	{
+		int recordAdded=0;
+		try {
+			Connection con= Dbutil.getConnection();
+			PreparedStatement pst = con.prepareStatement("insert into products values (?,?,?,?)");
+			pst.setString(1,product.getProductId());
+			pst.setString(2,product.getProductName());
+			pst.setString(3,product.getProductCategory());
+			pst.setInt(4, product.getProductPrice());
+			recordAdded=pst.executeUpdate();
+			Dbutil.closeConnection(con);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	return recordAdded;
+	}
 }

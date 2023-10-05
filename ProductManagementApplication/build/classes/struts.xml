@@ -12,11 +12,22 @@
 		<action name="welcomeAction" class="action.WelcomeAction">
 			<result name="success"> /welcome.jsp </result>
 		</action>
+		<action name="addProduct" class="action.AddProductAction">
+			<result name="success" type="redirect"> welcomeAction</result>
+			<result name="error"> /error.jsp</result>
+		</action>
 	</package>
 </struts>
 
 <!-- Flow the whole program as follows
 	web.xml > struts.xml > Login action class > login pojo obj pass to Login dao > db connection established using Dbutil > Check whether login pojo obj attributes exists in db or not
 	(i)if exists "success" code redirects to welcomeAction route > Welcome action class > receive a list of products from ProductMangementDAO class 
-	by extracting the productList from db > Now products are rendered in welcome page using iteratoe and property tags in struts
-	(ii)if not "input" code triggers login.jsp again -->
+	by extracting the productList from db > Now products are rendered in welcome page using iterator and property tags in struts
+	(ii)if not "input" code triggers login.jsp again 
+	
+	When addProduct button clicked > addProduct.jsp > addProduct route in struts.xml > addProductAction Class invoked > 
+	addProduct() called in ProductManagementDAO > dbutil connection established > product added > then based on the recordAdded 
+	if "success" redirected to welcomeAction to get all updated products 
+	if "error" render error page 
+	
+	-->
