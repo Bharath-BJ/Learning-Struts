@@ -69,24 +69,24 @@ public class RegisterAction extends ActionSupport{
  *  1) Using validate() & addFieldError(fieldName,msg) methods from ActionSupport Class (As we insert many validation it may get messy so validation.xml is preferred)
  *  2) Using ActionClass-validation.xml in the given naming format
  * 
- * 
+ */
 	@Override
 	public void validate() {
 		if(firstName.equals(""))
-			addFieldError("firstName","First Name is required");  // addFieldError(fieldName,Error msg)
+			addFieldError("firstName",getText("error.firstName.required"));  // addFieldError(fieldName,Error msg)
 		if(lastName.equals(""))
-			addFieldError("lastName","Last Name is required");
+			addFieldError("lastName",getText("error.lastName.required"));
 		if(gender==null)
-			addFieldError("gender","Gender is required");
+			addFieldError("gender",getText("error.gender.required"));
 		if(age==null)
-			addFieldError("age","Age is required");
+			addFieldError("age",getText("error.age.required"));
 		else if(age<18)
-			addFieldError("age","Age must be higher than 18");
+			addFieldError("age",getText("error.age.range"));
 		if(email.equals(""))
-			addFieldError("email","Email is required");
+			addFieldError("email",getText("error.email.required"));
 			
 	}
-	
+/*	
 */	
 
 }

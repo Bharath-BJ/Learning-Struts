@@ -13,41 +13,41 @@
 <validators>
 	<validator type="requiredstring">
 		<param name="fieldName">firstName</param>
-		<message> First name is required</message>
+		<message key="error.firstName.required"></message>
 	</validator>
 	<validator type="requiredstring">
 		<param name="fieldName">lastName</param>
-		<message> Last name is required</message>
+		<message key="error.lastName.required"></message>
 	</validator>
 	<validator type="required">
 		<param name="fieldName">gender</param>
-		<message> Gender name is required</message>
+		<message key="error.gender.required"></message>
 	</validator>
 	<validator type="required">
 		<param name="fieldName">age</param>
-		<message> Age is required</message>
+		<message key="error.age.required"></message>
 	</validator>
 	<validator type="int">
 		<param name="fieldName">age</param>
 		<param name="min">18</param>
-		<message>Age must be above ${min}</message>
+		<message key="error.age.range"></message>
 	</validator>
 	<field name="email">
 		<field-validator type="requiredstring">
-			<message>Email is required</message>
+			<message key="error.email.required"></message>
 		</field-validator>
 		<field-validator type="email">
-			<message>Must provide a valid mail</message>
+			<message key="error.email.valid"></message>
 		</field-validator>
 	</field>
 	<!--  Field validator can be a replacement for the email field with multiple validations 
 	<validator type="requiredstring">
 		<param name="fieldName">email</param>
-		<message> Email is required</message>
+		<message key="error.email.required"> </message>
 	</validator>
 	<validator type="email">
 		<param name="fieldName"> email</param>
-		<message>Must provide a valid mail</message>
+		<message key="error.email.valid"></message>
 	</validator>
 	 -->
 </validators>
